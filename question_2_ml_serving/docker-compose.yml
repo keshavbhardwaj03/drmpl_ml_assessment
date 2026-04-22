@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  ml_service:
+    build: ./ml_service
+    ports:
+      - "8000:8000"
+
+  node_backend:
+    build: ./node_backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - ml_service
